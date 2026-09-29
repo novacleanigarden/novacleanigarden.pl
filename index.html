@@ -1,1011 +1,1459 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Nova Clean i Garden | Sprzątanie, samochody i ogrody</title>
-
-    <meta name="description" content="Nova Clean i Garden – profesjonalne sprzątanie domów, mieszkań, firm i samochodów oraz usługi ogrodowe. Otwock, Józefów, Warszawa i okolice.">
-    <meta name="theme-color" content="#12382d">
-
-    <style>
-        :root {
-            --green: #12382d;
-            --green-dark: #0b261e;
-            --green-light: #1d5141;
-            --mint: #cfeee2;
-            --mint-light: #eef9f5;
-            --white: #ffffff;
-            --gray: #f4f6f5;
-            --gray-dark: #64716c;
-            --text: #18231f;
-            --border: #e2e8e5;
-        }
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: Arial, Helvetica, sans-serif;
-            color: var(--text);
-            background: var(--white);
-            line-height: 1.6;
-        }
-
-        a {
-            color: inherit;
-            text-decoration: none;
-        }
-
-        .container {
-            width: min(1120px, calc(100% - 40px));
-            margin: 0 auto;
-        }
-
-        /* NAVIGATION */
-
-        header {
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            background: rgba(255,255,255,0.96);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid var(--border);
-        }
-
-        .nav {
-            min-height: 76px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 25px;
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 11px;
-            font-weight: 800;
-            font-size: 20px;
-            letter-spacing: -0.5px;
-            color: var(--green);
-        }
-
-        .logo-mark {
-            width: 40px;
-            height: 40px;
-            border-radius: 12px;
-            background: var(--green);
-            color: white;
-            display: grid;
-            place-items: center;
-            font-weight: 800;
-            font-size: 18px;
-        }
-
-        .nav-links {
-            display: flex;
-            align-items: center;
-            gap: 28px;
-            font-size: 15px;
-            font-weight: 600;
-        }
-
-        .nav-links a:hover {
-            color: var(--green-light);
-        }
-
-        .nav-phone {
-            padding: 10px 17px;
-            border-radius: 10px;
-            background: var(--green);
-            color: white !important;
-        }
-
-        /* HERO */
-
-        .hero {
-            background:
-                radial-gradient(circle at 85% 20%, rgba(207,238,226,0.9), transparent 30%),
-                linear-gradient(135deg, #f7fbf9 0%, #ffffff 55%, #eef8f4 100%);
-            padding: 100px 0 90px;
-            overflow: hidden;
-        }
-
-        .hero-grid {
-            display: grid;
-            grid-template-columns: 1.05fr 0.95fr;
-            align-items: center;
-            gap: 65px;
-        }
-
-        .eyebrow {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            background: var(--mint);
-            color: var(--green);
-            padding: 7px 13px;
-            border-radius: 100px;
-            font-size: 13px;
-            font-weight: 700;
-            margin-bottom: 20px;
-        }
-
-        .eyebrow::before {
-            content: "";
-            width: 7px;
-            height: 7px;
-            border-radius: 50%;
-            background: var(--green-light);
-        }
-
-        h1 {
-            font-size: clamp(42px, 6vw, 72px);
-            line-height: 1.03;
-            letter-spacing: -3px;
-            color: var(--green-dark);
-            margin-bottom: 25px;
-        }
-
-        .hero h1 span {
-            color: var(--green-light);
-        }
-
-        .hero-text {
-            font-size: 19px;
-            color: var(--gray-dark);
-            max-width: 600px;
-            margin-bottom: 32px;
-        }
-
-        .buttons {
-            display: flex;
-            gap: 12px;
-            flex-wrap: wrap;
-        }
-
-        .btn {
-            display: inline-flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 50px;
-            padding: 0 23px;
-            border-radius: 11px;
-            font-weight: 700;
-            transition: 0.2s ease;
-            border: 1px solid transparent;
-        }
-
-        .btn-primary {
-            background: var(--green);
-            color: white;
-        }
-
-        .btn-primary:hover {
-            background: var(--green-dark);
-            transform: translateY(-2px);
-        }
-
-        .btn-secondary {
-            background: white;
-            color: var(--green);
-            border-color: var(--border);
-        }
-
-        .btn-secondary:hover {
-            border-color: var(--green);
-        }
-
-        .hero-card {
-            position: relative;
-            min-height: 420px;
-            border-radius: 28px;
-            background:
-                linear-gradient(145deg, rgba(18,56,45,0.97), rgba(29,81,65,0.93)),
-                var(--green);
-            padding: 38px;
-            color: white;
-            overflow: hidden;
-            box-shadow: 0 25px 70px rgba(18,56,45,0.18);
-        }
-
-        .hero-card::before {
-            content: "";
-            position: absolute;
-            width: 300px;
-            height: 300px;
-            border-radius: 50%;
-            background: rgba(207,238,226,0.13);
-            right: -100px;
-            top: -80px;
-        }
-
-        .hero-card::after {
-            content: "";
-            position: absolute;
-            width: 180px;
-            height: 180px;
-            border-radius: 50%;
-            background: rgba(207,238,226,0.08);
-            left: -80px;
-            bottom: -70px;
-        }
-
-        .card-content {
-            position: relative;
-            z-index: 2;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            min-height: 344px;
-        }
-
-        .card-icon {
-            font-size: 52px;
-            margin-bottom: 25px;
-        }
-
-        .hero-card h2 {
-            font-size: 31px;
-            line-height: 1.15;
-            margin-bottom: 15px;
-        }
-
-        .hero-card p {
-            color: #d8ebe4;
-            max-width: 390px;
-        }
-
-        .card-bottom {
-            display: flex;
-            justify-content: space-between;
-            align-items: end;
-            gap: 20px;
-            margin-top: 35px;
-        }
-
-        .mini-stat strong {
-            display: block;
-            font-size: 28px;
-        }
-
-        .mini-stat span {
-            font-size: 13px;
-            color: #c2dbd2;
-        }
-
-        /* SECTIONS */
-
-        section {
-            padding: 90px 0;
-        }
-
-        .section-header {
-            max-width: 700px;
-            margin-bottom: 45px;
-        }
-
-        .section-label {
-            color: var(--green-light);
-            font-size: 13px;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            font-weight: 800;
-            margin-bottom: 10px;
-        }
-
-        h2.section-title {
-            font-size: clamp(32px, 4vw, 48px);
-            line-height: 1.1;
-            letter-spacing: -1.5px;
-            color: var(--green-dark);
-            margin-bottom: 15px;
-        }
-
-        .section-description {
-            color: var(--gray-dark);
-            font-size: 17px;
-        }
-
-        /* SERVICES */
-
-        .services {
-            background: var(--white);
-        }
-
-        .service-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 18px;
-        }
-
-        .service-card {
-            border: 1px solid var(--border);
-            border-radius: 20px;
-            padding: 30px;
-            background: white;
-            transition: 0.25s ease;
-        }
-
-        .service-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 18px 45px rgba(18,56,45,0.08);
-            border-color: #cbded7;
-        }
-
-        .service-number {
-            font-size: 13px;
-            font-weight: 800;
-            color: var(--green-light);
-            margin-bottom: 25px;
-        }
-
-        .service-card h3 {
-            font-size: 24px;
-            margin-bottom: 10px;
-            color: var(--green-dark);
-        }
-
-        .service-card p {
-            color: var(--gray-dark);
-            margin-bottom: 18px;
-        }
-
-        .service-list {
-            list-style: none;
-            display: grid;
-            gap: 8px;
-        }
-
-        .service-list li {
-            font-size: 14px;
-            color: #46534e;
-        }
-
-        .service-list li::before {
-            content: "✓";
-            color: var(--green-light);
-            font-weight: 800;
-            margin-right: 8px;
-        }
-
-        /* ABOUT */
-
-        .about {
-            background: var(--gray);
-        }
-
-        .about-grid {
-            display: grid;
-            grid-template-columns: 0.9fr 1.1fr;
-            gap: 70px;
-            align-items: center;
-        }
-
-        .about-box {
-            background: var(--green);
-            color: white;
-            border-radius: 24px;
-            padding: 40px;
-        }
-
-        .about-box .quote {
-            font-size: 30px;
-            line-height: 1.2;
-            font-weight: 800;
-            margin-bottom: 25px;
-        }
-
-        .about-box p {
-            color: #d5e7e0;
-        }
-
-        .about-content h2 {
-            font-size: 43px;
-            line-height: 1.1;
-            color: var(--green-dark);
-            margin-bottom: 20px;
-            letter-spacing: -1.5px;
-        }
-
-        .about-content p {
-            color: var(--gray-dark);
-            margin-bottom: 18px;
-            font-size: 17px;
-        }
-
-        .values {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 15px;
-            margin-top: 28px;
-        }
-
-        .value {
-            background: white;
-            border-radius: 15px;
-            padding: 20px;
-            border: 1px solid var(--border);
-        }
-
-        .value strong {
-            display: block;
-            color: var(--green-dark);
-            margin-bottom: 5px;
-        }
-
-        .value span {
-            color: var(--gray-dark);
-            font-size: 14px;
-        }
-
-        /* AREA */
-
-        .area {
-            background: var(--white);
-        }
-
-        .area-box {
-            border-radius: 25px;
-            background: var(--mint-light);
-            padding: 45px;
-            display: grid;
-            grid-template-columns: 0.8fr 1.2fr;
-            gap: 50px;
-            align-items: center;
-        }
-
-        .area-box h2 {
-            font-size: 38px;
-            line-height: 1.1;
-            color: var(--green-dark);
-            margin-bottom: 14px;
-        }
-
-        .area-box p {
-            color: var(--gray-dark);
-        }
-
-        .towns {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
-
-        .town {
-            background: white;
-            border: 1px solid #dcece6;
-            padding: 10px 15px;
-            border-radius: 100px;
-            font-size: 14px;
-            font-weight: 700;
-            color: var(--green);
-        }
-
-        /* CONTACT */
-
-        .contact {
-            background: var(--green-dark);
-            color: white;
-        }
-
-        .contact-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 70px;
-            align-items: center;
-        }
-
-        .contact h2 {
-            font-size: clamp(35px, 5vw, 56px);
-            line-height: 1.05;
-            letter-spacing: -2px;
-            margin-bottom: 18px;
-        }
-
-        .contact-intro {
-            color: #c9ded6;
-            font-size: 17px;
-            max-width: 520px;
-        }
-
-        .contact-card {
-            background: white;
-            color: var(--text);
-            border-radius: 22px;
-            padding: 32px;
-        }
-
-        .contact-item {
-            padding: 18px 0;
-            border-bottom: 1px solid var(--border);
-        }
-
-        .contact-item:last-child {
-            border-bottom: 0;
-        }
-
-        .contact-label {
-            display: block;
-            font-size: 12px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            color: var(--gray-dark);
-            font-weight: 800;
-            margin-bottom: 4px;
-        }
-
-        .contact-item a {
-            color: var(--green);
-            font-size: 18px;
-            font-weight: 700;
-        }
-
-        .contact-buttons {
-            display: flex;
-            gap: 10px;
-            margin-top: 20px;
-            flex-wrap: wrap;
-        }
-
-        .contact-buttons .btn-secondary {
-            border-color: #d8e1dd;
-        }
-
-        /* FOOTER */
-
-        footer {
-            background: #071b15;
-            color: #9db2aa;
-            padding: 25px 0;
-            font-size: 13px;
-        }
-
-        .footer-content {
-            display: flex;
-            justify-content: space-between;
-            gap: 20px;
-            flex-wrap: wrap;
-        }
-
-        .footer-brand {
-            color: white;
-            font-weight: 700;
-        }
-
-        /* MOBILE */
-
-        @media (max-width: 800px) {
-            .nav {
-                min-height: 68px;
-            }
-
-            .nav-links {
-                display: none;
-            }
-
-            .container {
-                width: min(100% - 28px, 1120px);
-            }
-
-            .hero {
-                padding: 65px 0;
-            }
-
-            .hero-grid,
-            .about-grid,
-            .area-box,
-            .contact-grid {
-                grid-template-columns: 1fr;
-                gap: 35px;
-            }
-
-            .hero-card {
-                min-height: 350px;
-            }
-
-            .service-grid {
-                grid-template-columns: 1fr;
-            }
-
-            section {
-                padding: 65px 0;
-            }
-
-            .about-box {
-                padding: 30px;
-            }
-
-            .area-box {
-                padding: 30px;
-            }
-
-            .values {
-                grid-template-columns: 1fr;
-            }
-
-            h1 {
-                letter-spacing: -2px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .logo {
-                font-size: 17px;
-            }
-
-            .logo-mark {
-                width: 35px;
-                height: 35px;
-            }
-
-            .hero-text {
-                font-size: 17px;
-            }
-
-            .hero-card {
-                padding: 28px;
-            }
-
-            .buttons,
-            .buttons .btn {
-                width: 100%;
-            }
-
-            .card-bottom {
-                align-items: flex-start;
-                flex-direction: column;
-            }
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Nova Clean i Garden | Sprzątanie, ogrody, samochody</title>
+
+<meta name="description" content="Nova Clean i Garden – kompleksowe sprzątanie, czyszczenie samochodów, pielęgnacja ogrodów i mycie elewacji. Warszawa i okolice. Nie oceniamy. Sprzątamy.">
+
+<style>
+:root{
+    --green:#163c31;
+    --green-dark:#0d2922;
+    --green-light:#2e6653;
+    --mint:#dcefe8;
+    --white:#ffffff;
+    --gray:#f3f5f4;
+    --gray-dark:#65716d;
+    --text:#1c2724;
+    --border:#dfe5e2;
+    --shadow:0 12px 35px rgba(16,43,35,.09);
+    --radius:20px;
+}
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:Arial, Helvetica, sans-serif;
+    background:#fff;
+    color:var(--text);
+    line-height:1.65;
+}
+
+a{
+    color:inherit;
+    text-decoration:none;
+}
+
+.container{
+    width:min(1160px,92%);
+    margin:0 auto;
+}
+
+/* ===== HEADER ===== */
+
+header{
+    position:sticky;
+    top:0;
+    z-index:1000;
+    background:rgba(255,255,255,.96);
+    backdrop-filter:blur(12px);
+    border-bottom:1px solid rgba(0,0,0,.06);
+}
+
+.navbar{
+    min-height:78px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:25px;
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    font-weight:800;
+    color:var(--green);
+    font-size:20px;
+    white-space:nowrap;
+}
+
+.logo-mark{
+    width:42px;
+    height:42px;
+    border-radius:13px;
+    background:var(--green);
+    color:white;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-weight:800;
+    letter-spacing:-1px;
+}
+
+nav{
+    display:flex;
+    align-items:center;
+    gap:25px;
+}
+
+nav a{
+    font-size:14px;
+    font-weight:600;
+    color:#34423e;
+    transition:.2s;
+}
+
+nav a:hover{
+    color:var(--green-light);
+}
+
+.header-contact{
+    display:flex;
+    align-items:center;
+    gap:9px;
+}
+
+.contact-icon{
+    width:38px;
+    height:38px;
+    border-radius:12px;
+    background:var(--gray);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:var(--green);
+    transition:.2s;
+}
+
+.contact-icon:hover{
+    background:var(--mint);
+    transform:translateY(-2px);
+}
+
+.clock{
+    margin-left:8px;
+    padding-left:15px;
+    border-left:1px solid var(--border);
+    font-size:11px;
+    line-height:1.35;
+    color:#697570;
+    text-align:right;
+    min-width:115px;
+}
+
+/* ===== HERO ===== */
+
+.hero{
+    background:
+        radial-gradient(circle at 85% 15%,rgba(104,158,138,.20),transparent 28%),
+        linear-gradient(135deg,var(--green-dark),var(--green));
+    color:white;
+    padding:95px 0 100px;
+    overflow:hidden;
+}
+
+.hero-grid{
+    display:grid;
+    grid-template-columns:1.15fr .85fr;
+    align-items:center;
+    gap:70px;
+}
+
+.badge{
+    display:inline-flex;
+    padding:7px 13px;
+    border:1px solid rgba(255,255,255,.2);
+    border-radius:50px;
+    color:#dcefe8;
+    font-size:12px;
+    margin-bottom:22px;
+    background:rgba(255,255,255,.05);
+}
+
+.hero h1{
+    font-size:clamp(42px,6vw,72px);
+    line-height:1.03;
+    letter-spacing:-2.5px;
+    margin-bottom:25px;
+}
+
+.hero h1 span{
+    color:#b9ddd0;
+}
+
+.hero p{
+    max-width:650px;
+    font-size:18px;
+    color:#d7e4df;
+    margin-bottom:32px;
+}
+
+.buttons{
+    display:flex;
+    gap:13px;
+    flex-wrap:wrap;
+}
+
+.btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    padding:14px 22px;
+    border-radius:12px;
+    font-weight:700;
+    font-size:14px;
+    transition:.25s;
+}
+
+.btn-primary{
+    background:white;
+    color:var(--green);
+}
+
+.btn-primary:hover{
+    transform:translateY(-2px);
+    box-shadow:0 8px 20px rgba(0,0,0,.15);
+}
+
+.btn-outline{
+    border:1px solid rgba(255,255,255,.35);
+    color:white;
+}
+
+.btn-outline:hover{
+    background:rgba(255,255,255,.08);
+}
+
+.hero-card{
+    background:rgba(255,255,255,.08);
+    border:1px solid rgba(255,255,255,.13);
+    border-radius:28px;
+    padding:32px;
+    backdrop-filter:blur(10px);
+}
+
+.hero-card-title{
+    font-size:13px;
+    color:#b9ddd0;
+    margin-bottom:18px;
+    text-transform:uppercase;
+    letter-spacing:1.2px;
+}
+
+.hero-service{
+    display:flex;
+    align-items:center;
+    gap:14px;
+    padding:14px 0;
+    border-bottom:1px solid rgba(255,255,255,.1);
+}
+
+.hero-service:last-child{
+    border-bottom:0;
+}
+
+.hero-service-icon{
+    width:42px;
+    height:42px;
+    border-radius:12px;
+    background:rgba(255,255,255,.09);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:19px;
+}
+
+.hero-service strong{
+    display:block;
+    font-size:15px;
+}
+
+.hero-service small{
+    color:#b8c9c3;
+}
+
+/* ===== SECTIONS ===== */
+
+section{
+    padding:90px 0;
+}
+
+.section-head{
+    max-width:720px;
+    margin-bottom:45px;
+}
+
+.section-label{
+    display:block;
+    color:var(--green-light);
+    text-transform:uppercase;
+    letter-spacing:1.5px;
+    font-size:12px;
+    font-weight:800;
+    margin-bottom:10px;
+}
+
+.section-head h2{
+    font-size:clamp(30px,4vw,45px);
+    line-height:1.1;
+    letter-spacing:-1px;
+    margin-bottom:15px;
+}
+
+.section-head p{
+    color:var(--gray-dark);
+}
+
+/* ===== SERVICES ===== */
+
+.services{
+    background:var(--gray);
+}
+
+.services-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:20px;
+}
+
+.service-card{
+    background:white;
+    padding:30px;
+    border:1px solid var(--border);
+    border-radius:var(--radius);
+    box-shadow:var(--shadow);
+    transition:.25s;
+}
+
+.service-card:hover{
+    transform:translateY(-4px);
+}
+
+.service-icon{
+    width:52px;
+    height:52px;
+    border-radius:15px;
+    background:var(--mint);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:23px;
+    margin-bottom:20px;
+}
+
+.service-card h3{
+    font-size:22px;
+    margin-bottom:12px;
+}
+
+.service-card p{
+    color:#65716d;
+    font-size:15px;
+}
+
+.service-card ul{
+    margin:18px 0 0 19px;
+    color:#58635f;
+    font-size:14px;
+}
+
+.service-card li{
+    margin:5px 0;
+}
+
+.service-note{
+    margin-top:17px;
+    padding-top:15px;
+    border-top:1px solid var(--border);
+    font-size:13px;
+    color:#6c7773;
+}
+
+/* ===== ONE COMPANY ===== */
+
+.one-company{
+    background:white;
+}
+
+.one-company-box{
+    background:linear-gradient(135deg,#edf6f2,#f7faf9);
+    border:1px solid #dce9e4;
+    border-radius:28px;
+    padding:45px;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:45px;
+    align-items:center;
+}
+
+.one-company h2{
+    font-size:36px;
+    line-height:1.15;
+    margin-bottom:18px;
+}
+
+.one-company p{
+    color:#5d6864;
+}
+
+.one-company-list{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:12px;
+}
+
+.one-company-item{
+    background:white;
+    border:1px solid var(--border);
+    border-radius:14px;
+    padding:15px;
+    font-size:14px;
+    font-weight:700;
+    color:var(--green);
+}
+
+/* ===== WHY US ===== */
+
+.why{
+    background:var(--gray);
+}
+
+.why-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:17px;
+}
+
+.why-card{
+    background:white;
+    border:1px solid var(--border);
+    border-radius:18px;
+    padding:24px;
+}
+
+.why-number{
+    font-size:12px;
+    color:var(--green-light);
+    font-weight:800;
+    margin-bottom:13px;
+}
+
+.why-card h3{
+    font-size:17px;
+    margin-bottom:7px;
+}
+
+.why-card p{
+    color:#6a7470;
+    font-size:14px;
+}
+
+/* ===== HOW IT WORKS ===== */
+
+.steps{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:18px;
+}
+
+.step{
+    position:relative;
+    padding:25px;
+    border:1px solid var(--border);
+    border-radius:18px;
+}
+
+.step-number{
+    width:38px;
+    height:38px;
+    border-radius:50%;
+    background:var(--green);
+    color:white;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-weight:800;
+    margin-bottom:18px;
+}
+
+.step h3{
+    margin-bottom:8px;
+}
+
+.step p{
+    color:#68736f;
+    font-size:14px;
+}
+
+/* ===== REALIZATIONS ===== */
+
+.realizations{
+    background:var(--gray);
+}
+
+.gallery{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:18px;
+}
+
+.gallery-item{
+    min-height:220px;
+    border-radius:20px;
+    border:1px dashed #bcc9c4;
+    background:white;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding:25px;
+    color:#7a8581;
+}
+
+.gallery-item strong{
+    display:block;
+    color:var(--green);
+    margin-bottom:5px;
+}
+
+.gallery-item span{
+    font-size:13px;
+}
+
+/* ===== VIDEOS ===== */
+
+.videos{
+    background:white;
+}
+
+.video-placeholder{
+    min-height:300px;
+    border-radius:24px;
+    background:var(--green-dark);
+    color:white;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding:35px;
+}
+
+.video-placeholder h3{
+    font-size:25px;
+    margin-bottom:8px;
+}
+
+.video-placeholder p{
+    color:#b9c9c3;
+}
+
+/* ===== AREA ===== */
+
+.area{
+    background:var(--gray);
+}
+
+.area-box{
+    background:var(--green);
+    color:white;
+    border-radius:28px;
+    padding:50px;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:50px;
+    align-items:center;
+}
+
+.area-box h2{
+    font-size:38px;
+    line-height:1.15;
+    margin-bottom:16px;
+}
+
+.area-box p{
+    color:#d1ded9;
+}
+
+.area-cities{
+    display:flex;
+    flex-wrap:wrap;
+    gap:9px;
+}
+
+.city{
+    padding:9px 13px;
+    border:1px solid rgba(255,255,255,.18);
+    background:rgba(255,255,255,.06);
+    border-radius:50px;
+    font-size:13px;
+}
+
+.city.main{
+    background:#dcefe8;
+    color:var(--green);
+    border-color:#dcefe8;
+    font-weight:800;
+}
+
+/* ===== CONTACT ===== */
+
+.contact{
+    padding-bottom:100px;
+}
+
+.contact-box{
+    background:var(--gray);
+    border:1px solid var(--border);
+    border-radius:28px;
+    padding:50px;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:45px;
+}
+
+.contact-box h2{
+    font-size:40px;
+    line-height:1.1;
+    margin-bottom:15px;
+}
+
+.contact-box p{
+    color:#68736f;
+}
+
+.contact-details{
+    display:flex;
+    flex-direction:column;
+    gap:13px;
+    margin-top:25px;
+}
+
+.contact-row{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    font-weight:700;
+}
+
+.contact-row-icon{
+    width:42px;
+    height:42px;
+    border-radius:12px;
+    background:white;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:var(--green);
+}
+
+.contact-row a:hover{
+    color:var(--green-light);
+}
+
+/* ===== FOOTER ===== */
+
+footer{
+    background:#0b211b;
+    color:#b8c7c1;
+    padding:35px 0;
+}
+
+.footer-inner{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:20px;
+    flex-wrap:wrap;
+}
+
+.footer-logo{
+    color:white;
+    font-weight:800;
+}
+
+.footer-small{
+    font-size:12px;
+}
+
+/* ===== MOBILE ===== */
+
+@media(max-width:900px){
+
+    nav{
+        display:none;
+    }
+
+    .clock{
+        display:none;
+    }
+
+    .hero{
+        padding:70px 0;
+    }
+
+    .hero-grid,
+    .one-company-box,
+    .area-box,
+    .contact-box{
+        grid-template-columns:1fr;
+    }
+
+    .hero-grid{
+        gap:40px;
+    }
+
+    .services-grid{
+        grid-template-columns:1fr;
+    }
+
+    .why-grid{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .steps{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .gallery{
+        grid-template-columns:1fr 1fr;
+    }
+
+}
+
+@media(max-width:600px){
+
+    section{
+        padding:65px 0;
+    }
+
+    .navbar{
+        min-height:68px;
+    }
+
+    .logo{
+        font-size:17px;
+    }
+
+    .logo-mark{
+        width:38px;
+        height:38px;
+    }
+
+    .header-contact .contact-icon{
+        width:35px;
+        height:35px;
+    }
+
+    .hero h1{
+        font-size:43px;
+    }
+
+    .hero p{
+        font-size:16px;
+    }
+
+    .hero-card{
+        padding:24px;
+    }
+
+    .why-grid,
+    .steps,
+    .gallery{
+        grid-template-columns:1fr;
+    }
+
+    .one-company-box,
+    .area-box,
+    .contact-box{
+        padding:30px 24px;
+    }
+
+    .one-company h2,
+    .area-box h2,
+    .contact-box h2{
+        font-size:30px;
+    }
+
+    .one-company-list{
+        grid-template-columns:1fr;
+    }
+
+    .contact-box{
+        gap:25px;
+    }
+
+}
+
+/* ===== SUBTLE ANIMATION ===== */
+
+@keyframes fadeUp{
+    from{
+        opacity:0;
+        transform:translateY(12px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+.hero-content,
+.hero-card{
+    animation:fadeUp .7s ease both;
+}
+
+.hero-card{
+    animation-delay:.12s;
+}
+</style>
 </head>
 
 <body>
 
 <header>
-    <div class="container nav">
-        <a href="#" class="logo">
-            <span class="logo-mark">N</span>
+    <div class="container navbar">
+
+        <a href="#start" class="logo">
+            <span class="logo-mark">NC</span>
             <span>Nova Clean i Garden</span>
         </a>
 
-        <nav class="nav-links">
+        <nav>
             <a href="#uslugi">Usługi</a>
-            <a href="#onas">O nas</a>
+            <a href="#dlaczego">Dlaczego my</a>
+            <a href="#realizacje">Realizacje</a>
             <a href="#obszar">Obszar działania</a>
-            <a href="#kontakt" class="nav-phone">733 148 957</a>
+            <a href="#kontakt">Kontakt</a>
         </nav>
+
+        <div class="header-contact">
+
+            <a class="contact-icon" href="tel:+48733148957" aria-label="Zadzwoń">
+                ☎
+            </a>
+
+            <a class="contact-icon" href="mailto:novacleanigarden@gmail.com" aria-label="Napisz e-mail">
+                ✉
+            </a>
+
+            <div class="clock">
+                <div id="time">--:--:--</div>
+                <div id="date">--.--.----</div>
+            </div>
+
+        </div>
+
     </div>
 </header>
 
 
 <main>
 
-    <!-- HERO -->
-    <section class="hero">
-        <div class="container hero-grid">
+<!-- ===== HERO ===== -->
 
-            <div>
-                <div class="eyebrow">Sprzątanie • Czyszczenie • Ogrody</div>
+<section class="hero" id="start">
 
-                <h1>
-                    Nie oceniamy.<br>
-                    <span>Sprzątamy.</span>
-                </h1>
+    <div class="container hero-grid">
 
-                <p class="hero-text">
-                    Nova Clean i Garden to profesjonalne sprzątanie,
-                    czyszczenie samochodów i pielęgnacja terenów zielonych
-                    dla domów, mieszkań i firm.
-                </p>
+        <div class="hero-content">
 
-                <div class="buttons">
-                    <a href="#kontakt" class="btn btn-primary">
-                        Zamów wycenę
-                    </a>
+            <span class="badge">SPRZĄTANIE • SAMOCHODY • OGRODY</span>
 
-                    <a href="tel:+48733148957" class="btn btn-secondary">
-                        Zadzwoń
-                    </a>
-                </div>
-            </div>
+            <h1>
+                Nie oceniamy.<br>
+                <span>Sprzątamy.</span>
+            </h1>
 
+            <p>
+                Profesjonalne usługi sprzątające, czyszczenie samochodów
+                oraz pielęgnacja ogrodów. Działamy przede wszystkim
+                w Warszawie i okolicach.
+            </p>
 
-            <div class="hero-card">
-                <div class="card-content">
+            <div class="buttons">
 
-                    <div>
-                        <div class="card-icon">✦</div>
+                <a class="btn btn-primary" href="tel:+48733148957">
+                    ☎ Zadzwoń
+                </a>
 
-                        <h2>
-                            Czystość bez zbędnego zamieszania.
-                        </h2>
-
-                        <p>
-                            Przyjeżdżamy, robimy swoje i zostawiamy
-                            przestrzeń w stanie, który po prostu dobrze wygląda.
-                        </p>
-                    </div>
-
-                    <div class="card-bottom">
-                        <div class="mini-stat">
-                            <strong>Domy</strong>
-                            <span>mieszkania i apartamenty</span>
-                        </div>
-
-                        <div class="mini-stat">
-                            <strong>Firmy</strong>
-                            <span>biura i obiekty</span>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-
-        </div>
-    </section>
-
-
-    <!-- SERVICES -->
-    <section class="services" id="uslugi">
-        <div class="container">
-
-            <div class="section-header">
-                <div class="section-label">Co robimy</div>
-
-                <h2 class="section-title">
-                    Jedna firma. Kilka sposobów na porządek.
-                </h2>
-
-                <p class="section-description">
-                    Od codziennego sprzątania po dokładne czyszczenie
-                    samochodu czy przygotowanie terenu wokół domu.
-                </p>
-            </div>
-
-
-            <div class="service-grid">
-
-                <article class="service-card">
-                    <div class="service-number">01 / SPRZĄTANIE</div>
-
-                    <h3>Domy, mieszkania i firmy</h3>
-
-                    <p>
-                        Dokładne sprzątanie przestrzeni prywatnych
-                        i użytkowych.
-                    </p>
-
-                    <ul class="service-list">
-                        <li>domy i mieszkania</li>
-                        <li>biura i lokale</li>
-                        <li>klatki schodowe</li>
-                        <li>garaże</li>
-                        <li>sprzątanie po remoncie</li>
-                    </ul>
-                </article>
-
-
-                <article class="service-card">
-                    <div class="service-number">02 / SAMOCHODY</div>
-
-                    <h3>Czyszczenie samochodów</h3>
-
-                    <p>
-                        Wnętrze samochodu może odzyskać drugie życie.
-                    </p>
-
-                    <ul class="service-list">
-                        <li>pranie tapicerki</li>
-                        <li>czyszczenie wnętrza</li>
-                        <li>odkurzanie</li>
-                        <li>mycie samochodu</li>
-                        <li>czyszczenie trudno dostępnych miejsc</li>
-                    </ul>
-                </article>
-
-
-                <article class="service-card">
-                    <div class="service-number">03 / OGRODY</div>
-
-                    <h3>Ogrody i tereny zielone</h3>
-
-                    <p>
-                        Porządek również poza domem.
-                    </p>
-
-                    <ul class="service-list">
-                        <li>koszenie trawników</li>
-                        <li>podcinanie i przycinanie</li>
-                        <li>usuwanie chwastów</li>
-                        <li>sadzenie roślin</li>
-                        <li>pielęgnacja terenów zielonych</li>
-                    </ul>
-                </article>
-
-
-                <article class="service-card">
-                    <div class="service-number">04 / POWIERZCHNIE ZEWNĘTRZNE</div>
-
-                    <h3>Mycie i czyszczenie</h3>
-
-                    <p>
-                        Kiedy zwykłe mycie już nie wystarcza.
-                    </p>
-
-                    <ul class="service-list">
-                        <li>mycie elewacji</li>
-                        <li>mycie powierzchni zewnętrznych</li>
-                        <li>czyszczenie zabrudzeń</li>
-                        <li>prace porządkowe</li>
-                        <li>indywidualna wycena</li>
-                    </ul>
-                </article>
-
-            </div>
-        </div>
-    </section>
-
-
-    <!-- ABOUT -->
-    <section class="about" id="onas">
-        <div class="container about-grid">
-
-            <div class="about-box">
-                <div class="quote">
-                    „Nie oceniamy. Sprzątamy.”
-                </div>
-
-                <p>
-                    Bo każdy czasem potrzebuje pomocy.
-                    Bez zbędnych komentarzy, bez oceniania i bez
-                    robienia z prostego sprzątania wielkiej filozofii.
-                </p>
-            </div>
-
-
-            <div class="about-content">
-
-                <div class="section-label">Nova Clean i Garden</div>
-
-                <h2>
-                    Profesjonalnie, konkretnie i po ludzku.
-                </h2>
-
-                <p>
-                    Zależy nam nie tylko na tym, żeby było czysto.
-                    Liczy się również punktualność, dokładność
-                    i normalny kontakt z klientem.
-                </p>
-
-                <p>
-                    Obsługujemy zarówno osoby prywatne, jak i firmy.
-                    Zakres prac dopasowujemy do konkretnego miejsca
-                    i potrzeb klienta.
-                </p>
-
-
-                <div class="values">
-
-                    <div class="value">
-                        <strong>Dokładność</strong>
-                        <span>Nie omijamy tego, czego nie widać na pierwszy rzut oka.</span>
-                    </div>
-
-                    <div class="value">
-                        <strong>Elastyczność</strong>
-                        <span>Zakres prac ustalamy indywidualnie.</span>
-                    </div>
-
-                    <div class="value">
-                        <strong>Profesjonalizm</strong>
-                        <span>Odpowiedni sprzęt i właściwe środki do pracy.</span>
-                    </div>
-
-                    <div class="value">
-                        <strong>Normalne i ludzkie podejście</strong>
-                        <span>Bez oceniania. Bez zbędnych pytań. </span>
-                    </div>
-
-                </div>
+                <a class="btn btn-outline" href="#kontakt">
+                    Zapytaj o wycenę
+                </a>
 
             </div>
 
         </div>
-    </section>
 
 
-    <!-- AREA -->
-    <section class="area" id="obszar">
-        <div class="container">
+        <div class="hero-card">
 
-            <div class="area-box">
+            <div class="hero-card-title">
+                Co możemy zrobić?
+            </div>
 
+            <div class="hero-service">
+                <div class="hero-service-icon">🧹</div>
                 <div>
-                    <div class="section-label">Gdzie działamy</div>
+                    <strong>Kompleksowe sprzątanie</strong>
+                    <small>Domy, mieszkania, firmy i inne obiekty</small>
+                </div>
+            </div>
 
-                    <h2>
-                        Warszawa i okolice.
-                    </h2>
+            <div class="hero-service">
+                <div class="hero-service-icon">🚗</div>
+                <div>
+                    <strong>Czyszczenie samochodów</strong>
+                    <small>Wnętrza, tapicerka i nadwozie</small>
+                </div>
+            </div>
 
-                    <p>
-                        Obsługujemy klientów na terenie Warszawy,
-                        okolic oraz Otwocka i pobliskich miejscowości.
-                    </p>
+            <div class="hero-service">
+                <div class="hero-service-icon">🌿</div>
+                <div>
+                    <strong>Pielęgnacja ogrodów</strong>
+                    <small>Trawniki, porządki i podstawowe prace ogrodowe</small>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ===== SERVICES ===== -->
+
+<section class="services" id="uslugi">
+
+    <div class="container">
+
+        <div class="section-head">
+            <span class="section-label">Nasze usługi</span>
+            <h2>Robimy konkretną robotę.</h2>
+            <p>
+                Zakres prac dobieramy do rzeczywistych potrzeb klienta.
+                Bez sztucznego zawyżania zakresu i bez obiecywania rzeczy,
+                których nie możemy profesjonalnie wykonać.
+            </p>
+        </div>
+
+
+        <div class="services-grid">
+
+
+            <article class="service-card">
+
+                <div class="service-icon">🧹</div>
+
+                <h3>Kompleksowe sprzątanie</h3>
+
+                <p>
+                    Sprzątanie domów, mieszkań, garaży, piwnic,
+                    pomieszczeń gospodarczych, klatek schodowych,
+                    lokali usługowych i innych obiektów.
+                </p>
+
+                <ul>
+                    <li>odkurzanie i mycie podłóg</li>
+                    <li>kuchnie i łazienki</li>
+                    <li>kurz i trudno dostępne miejsca</li>
+                    <li>okna i powierzchnie szklane</li>
+                    <li>dywany i wykładziny</li>
+                    <li>tapicerka</li>
+                    <li>czyszczenie parowe</li>
+                    <li>sprzątanie po remoncie</li>
+                </ul>
+
+                <div class="service-note">
+                    Zakres prac ustalamy indywidualnie.
                 </div>
 
+            </article>
 
-                <div class="towns">
-                    <span class="town">Warszawa</span>
-                    <span class="town">Józefów</span>
-                    <span class="town">Świder</span>
-                    <span class="town">Wiązowna</span>
-                    <span class="town">Otwock</span>
-                    <span class="town">Piastów</span>
-                    <span class="town">Pruszków</span>
-                    <span class="town">okolice</span>
+
+            <article class="service-card">
+
+                <div class="service-icon">🧽</div>
+
+                <h3>Sprzątanie wymagające</h3>
+
+                <p>
+                    Pomagamy przy przestrzeniach wymagających
+                    większej ilości pracy — również po dłuższym
+                    okresie nieużytkowania lub zaniedbania.
+                </p>
+
+                <ul>
+                    <li>mocno zabrudzone pomieszczenia</li>
+                    <li>mieszkania i domy wymagające odświeżenia</li>
+                    <li>garaże, piwnice i pomieszczenia gospodarcze</li>
+                    <li>przywracanie porządku i świeżości</li>
+                </ul>
+
+                <div class="service-note">
+                    Bez oceniania. Po prostu zabieramy się do pracy.
                 </div>
+
+            </article>
+
+
+            <article class="service-card">
+
+                <div class="service-icon">🚗</div>
+
+                <h3>Czyszczenie samochodów</h3>
+
+                <p>
+                    Kompleksowe odświeżanie samochodów — od wnętrza
+                    po nadwozie.
+                </p>
+
+                <ul>
+                    <li>pranie tapicerki</li>
+                    <li>czyszczenie foteli i kanapy</li>
+                    <li>dywaniki i wykładziny</li>
+                    <li>plastiki i elementy wnętrza</li>
+                    <li>dokładne odkurzanie</li>
+                    <li>mycie nadwozia</li>
+                </ul>
+
+                <div class="service-note">
+                    Mycie samochodów realizujemy w miejscach umożliwiających
+                    prawidłowe odprowadzenie powstających ścieków.
+                </div>
+
+            </article>
+
+
+            <article class="service-card">
+
+                <div class="service-icon">🌿</div>
+
+                <h3>Pielęgnacja ogrodów</h3>
+
+                <p>
+                    Podstawowe prace ogrodowe pomagające utrzymać
+                    posesję w porządku i dobrej kondycji.
+                </p>
+
+                <ul>
+                    <li>koszenie trawników</li>
+                    <li>podcinanie i wykaszanie trudno dostępnych miejsc</li>
+                    <li>usuwanie chwastów</li>
+                    <li>sadzenie roślin</li>
+                    <li>nawożenie trawników</li>
+                    <li>opryski roślin</li>
+                </ul>
+
+                <div class="service-note">
+                    Zakres prac dopasowujemy do potrzeb posesji.
+                </div>
+
+            </article>
+
+
+            <article class="service-card">
+
+                <div class="service-icon">🏠</div>
+
+                <h3>Mycie elewacji</h3>
+
+                <p>
+                    Odświeżanie dostępnych powierzchni elewacyjnych
+                    oraz usuwanie zabrudzeń, osadów i nalotów.
+                </p>
+
+                <ul>
+                    <li>mycie dostępnych powierzchni</li>
+                    <li>usuwanie zabrudzeń</li>
+                    <li>usuwanie osadów i nalotów</li>
+                    <li>dobór metody do rodzaju powierzchni</li>
+                </ul>
+
+                <div class="service-note">
+                    Zakres i możliwość realizacji ustalamy indywidualnie,
+                    zależnie m.in. od wysokości budynku i dostępności powierzchni.
+                </div>
+
+            </article>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ===== ONE COMPANY ===== -->
+
+<section class="one-company">
+
+    <div class="container">
+
+        <div class="one-company-box">
+
+            <div>
+
+                <span class="section-label">Jedna firma, wiele usług</span>
+
+                <h2>
+                    Nie musisz szukać kilku wykonawców.
+                </h2>
+
+                <p>
+                    Sprzątanie domu, pranie tapicerki samochodu,
+                    uporządkowanie ogrodu czy odświeżenie garażu?
+                    W wielu przypadkach możesz zlecić wszystko
+                    jednej firmie.
+                </p>
+
+                <br>
+
+                <p>
+                    Łączymy usługi sprzątające, czyszczenie samochodów
+                    i podstawową pielęgnację ogrodów — dzięki temu
+                    możesz wygodnie załatwić więcej podczas jednego kontaktu.
+                </p>
+
+            </div>
+
+
+            <div class="one-company-list">
+
+                <div class="one-company-item">✓ Sprzątanie domu</div>
+                <div class="one-company-item">✓ Pranie tapicerki</div>
+                <div class="one-company-item">✓ Czyszczenie auta</div>
+                <div class="one-company-item">✓ Pielęgnacja ogrodu</div>
+                <div class="one-company-item">✓ Garaż i piwnica</div>
+                <div class="one-company-item">✓ Mycie elewacji</div>
 
             </div>
 
         </div>
-    </section>
+
+    </div>
+
+</section>
 
 
-    <!-- CONTACT -->
-    <section class="contact" id="kontakt">
-        <div class="container contact-grid">
+<!-- ===== WHY ===== -->
+
+<section class="why" id="dlaczego">
+
+    <div class="container">
+
+        <div class="section-head">
+
+            <span class="section-label">Dlaczego Nova Clean i Garden?</span>
+
+            <h2>
+                Profesjonalnie, konkretnie i bez zbędnego komplikowania.
+            </h2>
+
+            <p>
+                Każde zlecenie traktujemy indywidualnie — od małej usługi
+                po większe kompleksowe sprzątanie.
+            </p>
+
+        </div>
+
+
+        <div class="why-grid">
+
+            <div class="why-card">
+                <div class="why-number">01</div>
+                <h3>Dokładność</h3>
+                <p>Liczy się efekt końcowy, a nie samo „odhaczenie” pracy.</p>
+            </div>
+
+            <div class="why-card">
+                <div class="why-number">02</div>
+                <h3>Profesjonalny sprzęt</h3>
+                <p>Korzystamy ze sprzętu dobranego do rodzaju wykonywanej usługi.</p>
+            </div>
+
+            <div class="why-card">
+                <div class="why-number">03</div>
+                <h3>Indywidualna wycena</h3>
+                <p>Zakres prac ustalamy na podstawie konkretnego zlecenia.</p>
+            </div>
+
+            <div class="why-card">
+                <div class="why-number">04</div>
+                <h3>Elastyczne terminy</h3>
+                <p>Ustalamy termin odpowiedni dla klienta i możliwości realizacji.</p>
+            </div>
+
+            <div class="why-card">
+                <div class="why-number">05</div>
+                <h3>Dojazd do klienta</h3>
+                <p>Nie musisz organizować transportu rzeczy czy samochodu do nas.</p>
+            </div>
+
+            <div class="why-card">
+                <div class="why-number">06</div>
+                <h3>Bez oceniania</h3>
+                <p>Niezależnie od stanu pomieszczenia — przyjeżdżamy i robimy swoje.</p>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ===== HOW ===== -->
+
+<section>
+
+    <div class="container">
+
+        <div class="section-head">
+
+            <span class="section-label">Jak wygląda współpraca?</span>
+
+            <h2>
+                Prosto od pierwszego kontaktu.
+            </h2>
+
+        </div>
+
+
+        <div class="steps">
+
+            <div class="step">
+                <div class="step-number">1</div>
+                <h3>Kontakt</h3>
+                <p>Telefonicznie lub mailowo przedstawiasz nam, czego potrzebujesz.</p>
+            </div>
+
+            <div class="step">
+                <div class="step-number">2</div>
+                <h3>Wycena</h3>
+                <p>Ustalamy zakres prac i przygotowujemy indywidualną wycenę.</p>
+            </div>
+
+            <div class="step">
+                <div class="step-number">3</div>
+                <h3>Termin</h3>
+                <p>Ustalamy dogodny termin realizacji.</p>
+            </div>
+
+            <div class="step">
+                <div class="step-number">4</div>
+                <h3>Realizacja</h3>
+                <p>Przyjeżdżamy na miejsce i wykonujemy ustalone prace.</p>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ===== REALIZATIONS ===== -->
+
+<section class="realizations" id="realizacje">
+
+    <div class="container">
+
+        <div class="section-head">
+
+            <span class="section-label">Nasze realizacje</span>
+
+            <h2>
+                Efekty mówią więcej niż obietnice.
+            </h2>
+
+            <p>
+                Tutaj będziemy prezentować nasze rzeczywiste realizacje
+                — bez zdjęć z internetu i bez udawania, że cudza praca jest nasza.
+            </p>
+
+        </div>
+
+
+        <div class="gallery">
+
+            <div class="gallery-item">
+                <div>
+                    <strong>Twoja realizacja</strong>
+                    <span>Zdjęcie przed / po pojawi się tutaj</span>
+                </div>
+            </div>
+
+            <div class="gallery-item">
+                <div>
+                    <strong>Twoja realizacja</strong>
+                    <span>Zdjęcie przed / po pojawi się tutaj</span>
+                </div>
+            </div>
+
+            <div class="gallery-item">
+                <div>
+                    <strong>Twoja realizacja</strong>
+                    <span>Zdjęcie przed / po pojawi się tutaj</span>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ===== VIDEOS ===== -->
+
+<section class="videos">
+
+    <div class="container">
+
+        <div class="section-head">
+
+            <span class="section-label">Zobacz naszą pracę</span>
+
+            <h2>
+                Materiały z realizacji.
+            </h2>
+
+            <p>
+                W przyszłości znajdą się tutaj nasze własne filmy
+                pokazujące efekty pracy.
+            </p>
+
+        </div>
+
+
+        <div class="video-placeholder">
 
             <div>
-                <div class="section-label" style="color:#9ed8c3;">
-                    Kontakt
-                </div>
-
-                <h2>
-                    Masz coś do posprzątania?
-                </h2>
-
-                <p class="contact-intro">
-                    Napisz lub zadzwoń. Opisz, czego potrzebujesz,
-                    a ustalimy zakres prac i przygotujemy wycenę.
+                <h3>🎥 Nasze realizacje wideo</h3>
+                <p>
+                    Tutaj możemy później dodać filmy z naszych realizacji.
                 </p>
             </div>
 
+        </div>
 
-            <div class="contact-card">
+    </div>
 
-                <div class="contact-item">
-                    <span class="contact-label">Telefon</span>
-                    <a href="tel:+48733148957">
-                        733 148 957
-                    </a>
+</section>
+
+
+<!-- ===== AREA ===== -->
+
+<section class="area" id="obszar">
+
+    <div class="container">
+
+        <div class="area-box">
+
+            <div>
+
+                <span class="section-label" style="color:#b9ddd0;">
+                    Obszar działania
+                </span>
+
+                <h2>
+                    Działamy przede wszystkim w Warszawie.
+                </h2>
+
+                <p>
+                    Obsługujemy również okoliczne miejscowości.
+                    Nie widzisz swojej miejscowości?
+                    Skontaktuj się z nami — sprawdzimy możliwość dojazdu.
+                </p>
+
+            </div>
+
+
+            <div class="area-cities">
+
+                <span class="city main">Warszawa</span>
+                <span class="city">Piastów</span>
+                <span class="city">Pruszków</span>
+                <span class="city">Otwock</span>
+                <span class="city">Józefów</span>
+                <span class="city">Świder</span>
+                <span class="city">Wiązowna</span>
+                <span class="city">i okolice</span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ===== CONTACT ===== -->
+
+<section class="contact" id="kontakt">
+
+    <div class="container">
+
+        <div class="contact-box">
+
+            <div>
+
+                <span class="section-label">Kontakt</span>
+
+                <h2>
+                    Masz zlecenie?
+                    Porozmawiajmy.
+                </h2>
+
+                <p>
+                    Opowiedz nam, czego potrzebujesz.
+                    Ustalimy zakres prac i sprawdzimy możliwość realizacji.
+                </p>
+
+            </div>
+
+
+            <div>
+
+                <div class="contact-details">
+
+                    <div class="contact-row">
+
+                        <div class="contact-row-icon">☎</div>
+
+                        <a href="tel:+48733148957">
+                            733 148 957
+                        </a>
+
+                    </div>
+
+
+                    <div class="contact-row">
+
+                        <div class="contact-row-icon">✉</div>
+
+                        <a href="mailto:novacleanigarden@gmail.com">
+                            novacleanigarden@gmail.com
+                        </a>
+
+                    </div>
+
                 </div>
 
-                <div class="contact-item">
-                    <span class="contact-label">E-mail</span>
-                    <a href="mailto:novacleanigarden@gmail.com">
-                        novacleanigarden@gmail.com
-                    </a>
-                </div>
 
-                <div class="contact-buttons">
+                <div class="buttons" style="margin-top:25px;">
 
-                    <a href="tel:+48733148957" class="btn btn-primary">
-                        Zadzwoń
+                    <a class="btn" style="background:var(--green);color:white;" href="tel:+48733148957">
+                        ☎ Zadzwoń
                     </a>
 
-                    <a href="mailto:novacleanigarden@gmail.com" class="btn btn-secondary">
-                        Napisz e-mail
+                    <a class="btn" style="background:white;color:var(--green);border:1px solid var(--border);" href="mailto:novacleanigarden@gmail.com">
+                        ✉ Napisz wiadomość
                     </a>
 
                 </div>
@@ -1013,27 +1461,65 @@
             </div>
 
         </div>
-    </section>
+
+    </div>
+
+</section>
 
 </main>
 
 
 <footer>
-    <div class="container footer-content">
 
-        <div>
-            <span class="footer-brand">
-                Nova Clean i Garden
-            </span>
-            <span> · Nie oceniamy. Sprzątamy.</span>
+    <div class="container footer-inner">
+
+        <div class="footer-logo">
+            Nova Clean i Garden
         </div>
 
-        <div>
-            © 2026 Nova Clean i Garden
+        <div class="footer-small">
+            © <span id="year"></span> Nova Clean i Garden. Wszelkie prawa zastrzeżone.
         </div>
 
     </div>
+
 </footer>
+
+
+<script>
+
+/* ===== CLOCK + DATE ===== */
+
+function updateClock(){
+
+    const now = new Date();
+
+    const time = now.toLocaleTimeString('pl-PL', {
+        hour:'2-digit',
+        minute:'2-digit',
+        second:'2-digit'
+    });
+
+    const date = now.toLocaleDateString('pl-PL', {
+        day:'2-digit',
+        month:'2-digit',
+        year:'numeric'
+    });
+
+    document.getElementById('time').textContent = time;
+    document.getElementById('date').textContent = date;
+}
+
+updateClock();
+setInterval(updateClock,1000);
+
+
+/* ===== FOOTER YEAR ===== */
+
+document.getElementById('year').textContent =
+    new Date().getFullYear();
+
+</script>
 
 </body>
 </html>
